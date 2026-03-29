@@ -1,0 +1,31 @@
+# Bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE / OS
+.idea/
+Thumbs.db
+.DS_Store
+
+# PyInstaller intermediate output (regenerated on each build)
+build/
+
+# Local simulation traces (optional; remove this line if you want CSVs in git)
+*.csv
+
+# Course materials
+Ex1_CA.pdf
+L2_Cellular_automata.pdf
+
+# Note: dist/ is intentionally NOT ignored so you can commit dist/ca_ex1/ for
+# graders who need the Windows bundle without building. If the repo is too large,
+# add "dist/" here and ship the zip via GitHub Releases instead.

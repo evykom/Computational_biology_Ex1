@@ -1,0 +1,5 @@
+# GUI uses matplotlib (brings in numpy); batch-only mode could skip these
+matplotlib>=3.7
+
+# Build the Windows executable
+pyinstaller>=6.0
