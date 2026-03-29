@@ -7,10 +7,8 @@ Computational biology coursework (**Bar-Ilan University**): a two-strain bacteri
 - [Theory](#theory)
 - [Technical overview (how the code is organized)](#technical-overview-how-the-code-is-organized)
 - [Running the pre-built program (no Python install)](#running-the-pre-built-program-no-python-install)
-- [Building from source (developers)](#building-from-source-developers)
-- [Git: suggested command order (you run these locally)](#git-suggested-command-order-you-run-these-locally)
-- [More detail for running and building](#more-detail-for-running-and-building)
-- [License](#license)
+- [Building from source](#building-from-source)
+
 
 ---
 
@@ -49,25 +47,25 @@ The **Windows executable** in this repo is built with **PyInstaller** on Windows
 
 ## Running the pre-built program (no Python install)
 
-If the repository includes **`dist/ca_ex1/`** (the full folder produced by PyInstaller):
+**Windows, 64-bit.** No Python needed. Keep the whole **`dist/ca_ex1`** folder (do not move only `ca_ex1.exe` out of it).
 
-1. **Download or clone** the repository.
-2. Open **`dist/ca_ex1/`**. Do **not** move only `ca_ex1.exe` elsewhere—the **entire folder** (DLLs, `_internal`, etc.) must stay together.
-3. Double-click **`ca_ex1.exe`**, or from PowerShell in that folder:
+**Double-click `ca_ex1.exe`** → opens the **GUI** (a console window may stay open in the background; that is normal).
 
-   ```powershell
-   .\ca_ex1.exe
-   .\ca_ex1.exe --gui
-   .\ca_ex1.exe --k 9 --p-a 0.4 --p-b 0.08 --generations 500 --seed 1
-   ```
+In **PowerShell** (same behavior without `--gui`):
 
-**Requirements on the user’s PC:** Windows (same architecture you built for, typically 64-bit). **No** Python or `pip install` is needed. If Windows reports a missing **VC++** / DLL error, installing the latest [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) for x64 often fixes it.
+```powershell
+git clone https://github.com/evykom/Computational_biology_Ex1.git
+cd Computational_biology_Ex1\dist\ca_ex1
+.\ca_ex1.exe
+```
 
-**If `dist/` is not in the repo** (e.g. to keep the clone small), use a **GitHub Release** zip of `ca_ex1` and the same instructions after extracting.
+**Batch mode** (terminal only, no GUI): pass at least one flag, e.g. `.\ca_ex1.exe --generations 500 --seed 1` or `.\ca_ex1.exe --output run.csv`.
+
+If a **DLL / VC++** error appears, install the [VC++ Redistributable (x64)](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist).
 
 ---
 
-## Building from source (developers)
+## Building from source 
 
 From the project root (with Python 3.10+):
 
@@ -75,11 +73,11 @@ From the project root (with Python 3.10+):
 pip install -r requirements.txt
 ```
 
-Run without packaging:
+Run without packaging (double-click / no args opens the GUI like the exe):
 
 ```powershell
-python main.py --p-a 0.35 --p-b 0.12 --k 4 --generations 500 --seed 123
-python main.py --gui
+python main.py
+python main.py --generations 500 --seed 1
 ```
 
 Build the Windows bundle:
@@ -92,31 +90,4 @@ Output: **`dist/ca_ex1/`** containing **`ca_ex1.exe`**.
 
 ---
 
-## Git: suggested command order (you run these locally)
 
-Run in PowerShell from this project directory after `.gitignore` and `README.md` exist and optional rebuild of `dist\ca_ex1\`.
-
-1. `git init`
-2. `git branch -M main`
-3. `git status`
-4. `git add .`
-5. `git commit -m "Initial commit: CA Exercise 1 source and Windows bundle"`
-
-On GitHub, create an **empty** repository (no README if you already committed one). Then:
-
-6. `git remote add origin https://github.com/<YOUR_USER>/<REPO_NAME>.git`
-7. `git push -u origin main`
-
-Alternatively, with [GitHub CLI](https://cli.github.com/): `gh auth login` then `gh repo create <REPO_NAME> --public --source=. --remote=origin --push`.
-
----
-
-## More detail for running and building
-
-See [`README_RUN.txt`](README_RUN.txt) for a first-person build/run log and flag reference.
-
----
-
-## License
-
-No license is set by default. Add a `LICENSE` file (e.g. MIT) if you want to clarify reuse rights.

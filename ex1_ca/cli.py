@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import sys
 from pathlib import Path
 
 from ex1_ca.simulation import run_simulation
@@ -47,12 +48,22 @@ def build_arg_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--gui",
         action="store_true",
-        help="Open the interactive grid window (matplotlib + tkinter) instead of batch mode.",
+        help="Open the interactive grid (same as running with no arguments).",
     )
     return p
 
 
 def main(argv: list[str] | None = None) -> int:
+    if argv is None:
+        argv = sys.argv[1:]
+
+    # Double-click or `ca_ex1.exe` with no args: open GUI (console stays open in background).
+    if len(argv) == 0:
+        from ex1_ca.gui import run_gui
+
+        run_gui()
+        return 0
+
     args = build_arg_parser().parse_args(argv)
     if args.gui:
         from ex1_ca.gui import run_gui
