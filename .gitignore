@@ -1,6 +1,8 @@
-# Bytecode and caches
+# Bytecode and caches (do not use *.py[cod] — it matches *.pyd and would ignore
+# PyInstaller’s binary extension modules under dist/, breaking clones.)
 __pycache__/
-*.py[cod]
+*.pyc
+*.pyo
 *$py.class
 .pytest_cache/
 .mypy_cache/
