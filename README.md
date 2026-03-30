@@ -57,6 +57,8 @@ cd Computational_biology_Ex1\dist\ca_ex1
 .\ca_ex1.exe
 ```
 
+Alternatively, open `Computational_biology_Ex1\dist\ca_ex1` and double-click `ca_ex1.exe` (it may take a few seconds to start).
+
 **Batch mode** (terminal only, no GUI): pass at least one flag, e.g. `.\ca_ex1.exe --generations 500 --seed 1` or `.\ca_ex1.exe --output run.csv`.
 
 If a **DLL / VC++** error appears, install the [VC++ Redistributable (x64)](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist).
