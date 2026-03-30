@@ -49,9 +49,7 @@ The **Windows executable** in this repo is built with **PyInstaller** on Windows
 
 **Windows, 64-bit.** No Python needed. Keep the whole **`dist/ca_ex1`** folder (do not move only `ca_ex1.exe` out of it).
 
-**Double-click `ca_ex1.exe`** → opens the **GUI** (a console window may stay open in the background; that is normal).
-
-In **PowerShell** (same behavior without `--gui`):
+In **PowerShell** :
 
 ```powershell
 git clone https://github.com/evykom/Computational_biology_Ex1.git
